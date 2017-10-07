@@ -1,0 +1,18 @@
+{
+		  "development": {
+		    "username": "root",
+		    "password": "Krish@2011",
+		    "database": "wkhappy",
+		    "host": "127.0.0.1",
+		    "port": 3306,
+		    "dialect": "mysql"
+		  },
+		  "test": {
+			  "username": "root",
+			    "password": "Krish@2011",
+			    "database": "wkhappy",
+			    "host": "127.0.0.1",
+			    "port": 3306,
+			    "dialect": "mysql"
+		  }
+}
