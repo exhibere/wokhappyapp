@@ -1,9 +1,9 @@
-const todosController = require('../controllers').todos;
+const happinessController = require('../controllers').happiness;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
-    message: 'Welcome to the Todos API!',
+    message: 'Welcome to the Work Happy API!',
   }));
 
-  app.post('/api/todos', todosController.create);
+  app.post('/api/happiness', happinessController.create);
 };

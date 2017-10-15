@@ -1,5 +1,5 @@
-const todos = require('./todos');
+const happiness = require('./happiness');
 
 module.exports = {
-  todos,
+  happiness,
 };
