@@ -33,4 +33,33 @@ module.exports = {
     return Happiness.create(happyInst)
     	 .then(happyInst => res.status(201).send(happyInst))
       .catch(error => res.status(400).send(error))}},
+      
+     list(req, res) {
+    	  return Happiness
+    	    .all()
+    	    .then(happiness => res.status(200).send(happiness))
+    	    .catch(error => res.status(400).send(error));
+    	},
+    retrieveForUser(req, res) {
+      	   return Happiness
+      	    .sum('happy',{
+      	    	where: {userId: req.params.userId}
+      	 })
+      	    .then(happySum =>  Happiness
+      	      	    .count({
+      	      	    	where: {userId: req.params.userId}
+      	      	 })
+      	      	    .then(happyCount => res.status(200).send({happinessIndex : Math.round(happySum*100/happyCount)} ))
+      	      	    .catch(error => res.status(400).send(error)))
+      	    .catch(error => res.status(400).send(error));
+      	},
+      	 retrieveForAll(req, res) {
+       	   return Happiness
+       	    .sum('happy')
+       	    .then(happySum =>  Happiness
+       	      	    .count()
+       	      	    .then(happyCount => res.status(200).send({happinessIndex : Math.round(happySum*100/happyCount)} ))
+       	      	    .catch(error => res.status(400).send(error)))
+       	    .catch(error => res.status(400).send(error));
+       	},
   };
